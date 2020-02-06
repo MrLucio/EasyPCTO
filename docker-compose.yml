@@ -1,0 +1,31 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: "3.1"
+services:
+
+#    web:
+#      build: app/web
+#      container_name: easypcto-web
+#      working_dir: /application
+#      volumes:
+#        - .:/application
+#        - ./app/webserver/nginx.conf:/etc/nginx/conf.d/default.conf
+
+    client:
+      build: app/client 
+      container_name: easypcto-client
+      working_dir: /application
+      volumes:
+        - ./app/client:/application
+        - /application/node_modules
+      ports:
+        - "3000"
+
+#    server:
+#      build: app/server
+#      container_name: easypcto-server
+#      working_dir: /application
+#      volumes:
+#        - .:/application
+#        - ./app/server/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
