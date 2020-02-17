@@ -20,7 +20,16 @@ services:
         - ./app/client:/application
         - /application/node_modules
       ports:
-        - "3000"
+        - "3000:3000"
+
+    web:
+      build: app/web 
+      container_name: easypcto-web
+      working_dir: /application
+      volumes:
+        - ./app/web:/application
+      ports:
+        - "8080:8080"
 
 #    server:
 #      build: app/server
