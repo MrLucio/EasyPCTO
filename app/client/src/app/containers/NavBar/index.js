@@ -1,10 +1,17 @@
 import React from 'react';
 
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 import { Layout, Menu, Icon } from 'antd';
 import 'antd/dist/antd.css';
 
 const { Header, Content, Sider } = Layout;
+
+const links = {
+  '/': 0,
+  '/business': 1,
+  '/settings': 2
+}
 
 class NavBar extends React.Component{
   state = {
@@ -17,35 +24,26 @@ class NavBar extends React.Component{
 
   render() {
     return (
-      <Layout style={{ minHeight: '100vh' }}>
-        <Sider theme="light" collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
-          <div className="logo" />
-          <Menu defaultSelectedKeys={['3']} mode="inline">
-            <Menu.Item key="1">
-              <Icon type="pie-chart" />
-              <span>Prova</span>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Icon type="desktop" />
-              <span>Prova 2</span>
-            </Menu.Item>
-            <Menu.Item key="3">
-              <NavLink to="business">
-                <Icon type="file" />
-                File
-              </NavLink>
-            </Menu.Item>
-          </Menu>
-        </Sider>
-        <Layout>
-          <Header style={{ background: '#fff', padding: 0 }} />
-          <Content style={{ margin: '24px 16px 0' }}>
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-              {this.props.chilren}
-            </div>
-          </Content>
-        </Layout>
-      </Layout>
+      <Sider theme="light" collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
+        <div className="logo" />
+        <Menu defaultSelectedKeys={['0']} mode="inline">
+          <Menu.Item key="0">
+            <Icon type="pie-chart" />
+            <span>Homepage</span>
+            <Link to="/" />
+          </Menu.Item>
+          <Menu.Item key="1">
+            <Icon type="desktop" />
+            <span>Aziende</span>
+            <Link to="/business" />
+          </Menu.Item>
+          <Menu.Item key="2">
+          <Icon type="setting" theme="filled" />
+            <span>Impostazioni</span>
+            <Link to="/settings" />
+          </Menu.Item>
+        </Menu>
+      </Sider>
     );
   }
 }

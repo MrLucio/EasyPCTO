@@ -1,11 +1,11 @@
 import React from 'react';
-import { Checkbox } from 'antd';
+import { Switch } from 'antd';
 import 'antd/dist/antd.css';
 
-export default function business(){
+export default function settings(){
     return (
         <div>
-            Sono business
+            Sono settings
         </div>
     )
 }
