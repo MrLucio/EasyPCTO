@@ -3,6 +3,9 @@ export default (state, action) => {
         case "NUN_ZO":
             return state;
         default:
-            return state;
+            return {
+                ...state,
+                "sis": "nos"
+            };
     }
 }
