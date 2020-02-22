@@ -8,6 +8,7 @@ import NavBar from './containers/NavBar';
 import Homepage from "./routes/Homepage";
 import Business from "./routes/Business";
 import Settings from "./routes/Settings";
+import Login from "./routes/Login";
 
 import { Store } from "./store";
 
@@ -27,6 +28,7 @@ const App = ({match}) =>{
                                     <Route exact path={`${match.url}`} component={Homepage}/>
                                     <Route exact path={`${match.url}business`} component={Business}/>
                                     <Route exact path={`${match.url}settings`} component={Settings}/>
+                                    <Route exact path={`${match.url}login`} component={Login}/>
                                 </Switch>
                             </div>
                         </Content>

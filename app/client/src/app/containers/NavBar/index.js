@@ -38,9 +38,13 @@ class NavBar extends React.Component{
             <Link to="/business" />
           </Menu.Item>
           <Menu.Item key="2">
-          <Icon type="setting" theme="filled" />
+            <Icon type="setting" theme="filled" />
             <span>Impostazioni</span>
             <Link to="/settings" />
+          </Menu.Item>
+          <Menu.Item key="3">
+            <span>Login</span>
+            <Link to="/login" />
           </Menu.Item>
         </Menu>
       </Sider>
