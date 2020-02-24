@@ -43,6 +43,7 @@ class NavBar extends React.Component{
             <Link to="/settings" />
           </Menu.Item>
           <Menu.Item key="3">
+            <Icon type="lock" theme="filled"/>
             <span>Login</span>
             <Link to="/login" />
           </Menu.Item>

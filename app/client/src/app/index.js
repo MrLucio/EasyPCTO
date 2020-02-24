@@ -3,14 +3,14 @@ import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import { Layout } from "antd";
-import NavBar from './containers/NavBar';
+import NavBar from 'containers/NavBar';
 
 import Homepage from "./routes/Homepage";
 import Business from "./routes/Business";
 import Settings from "./routes/Settings";
 import Login from "./routes/Login";
 
-import { Store } from "./store";
+import { Store } from "store";
 
 const { Content } = Layout;
 
