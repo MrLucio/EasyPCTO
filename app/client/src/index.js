@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import MainApp from './MainApp';
+import 'rsuite/dist/styles/rsuite-default.css';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<MainApp />, document.getElementById('root'));

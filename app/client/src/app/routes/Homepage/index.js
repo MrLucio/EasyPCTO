@@ -1,7 +1,7 @@
 import React from 'react';
-import 'antd/dist/antd.css';
 import { connect } from 'react-redux';
-import { Business } from "actions/Business"; 
+import { Business } from "actions/Business";
+import { Button, Sidenav, Nav, Icon, Dropdown } from 'rsuite';
 
 class Homepage extends React.Component{
 
@@ -11,10 +11,16 @@ class Homepage extends React.Component{
     }
 
     render(){
+        
+        const headerStyles = {
+            padding: 20,
+            fontSize: 16,
+            background: '#34c3ff',
+            color: ' #fff'
+        };
+
         return (
-            <div>
-                Sono homepage {this.props.items}
-            </div>
+            <div>Mah non so</div>
         )
     }
 }
