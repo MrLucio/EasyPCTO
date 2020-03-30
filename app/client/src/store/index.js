@@ -3,7 +3,12 @@ import thunk from 'redux-thunk';
 import Reducer from '../reducers';
 
 const initialState = {
-    'ciaone': 'dsasd'
+    'businesses': {},
+    'courses': [],
+    'atecos': [],
+    'types': [],
+    'locations': [],
+    'pagination': {}
 }
 
 const middlewares = [thunk];

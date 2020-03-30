@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
-import { Sidenav, Sidebar, Icon, Nav, Navbar, DOMHelper } from 'rsuite';
+import { HashRouter as Router, Switch, Route, NavLink, useLocation } from 'react-router-dom';
+import { Sidenav, Sidebar, Dropdown, Icon, Nav, DOMHelper } from 'rsuite';
 
 const { getHeight } = DOMHelper;
 
@@ -12,40 +12,36 @@ const headerStyles = {
   borderBottom: "1px solid #e5e5ea",
 };
 
-const iconStyles = {
-  width: 56,
-  height: 56,
-  lineHeight: '56px',
-  textAlign: 'center'
-};
-
-const NavToggle = ({ expand, onChange }) => {
+const NavItemLink = React.forwardRef((props, ref) => {
+  const location = useLocation();
   return (
-    <Navbar appearance="subtle" className="nav-toggle">
-      <Navbar.Body>
-        <Nav pullRight>
-          <Nav.Item onClick={onChange} style={{ width: 56, textAlign: 'center' }}>
-            <Icon icon={expand ? 'angle-left' : 'angle-right'} />
-          </Nav.Item>
-        </Nav>
-      </Navbar.Body>
-    </Navbar>
+    <Nav.Item
+      {...props}
+      ref={ref}
+      active={props.to === location.pathname}
+      componentClass={NavLink}
+    />
   );
-};
+});
+
+const DropdownItemLink = React.forwardRef((props, ref) => {
+  const location = useLocation();
+  return (
+    <Nav.Item
+      {...props}
+      ref={ref}
+      active={props.to === location.pathname}
+      componentClass={NavLink}
+    />
+  );
+});
 
 class NavBar extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      expand: true,
       windowHeight: getHeight(window)
     };
-    this.handleToggle = this.handleToggle.bind(this);
-  }
-  handleToggle() {
-    this.setState({
-      //expand: !this.state.expand
-    });
   }
   render() {
     const { expand } = this.state;
@@ -58,8 +54,7 @@ class NavBar extends React.Component{
         collapsible
       >
         <Sidenav
-          activeKey="1"
-          appearance="default"
+          appearance="subtle"
           style={ bodyStyle }
         >
           <Sidenav.Header>
@@ -68,25 +63,48 @@ class NavBar extends React.Component{
               <span style={{ marginLeft: 12 }}> EasyPCTO</span>
             </div>
           </Sidenav.Header>
-          <Sidenav.Body >
-            <Nav appearance="subtle">
-              <Nav.Item
+          <Sidenav.Body>
+            <Nav appearance="subtle" activeKey="1">
+              <NavItemLink
+                key="1"
                 eventKey="1"
-                active
                 icon={<Icon icon="dashboard" />}
-                componentClass={Link}
-                to="/"
+                componentClass={NavLink}
+                exact to="/"
+                activeClassName="nav-item-active"
               >
                 Home
-              </Nav.Item>
-              <Nav.Item
+              </NavItemLink>
+              <NavItemLink
+                key="2"
                 eventKey="2"
                 icon={<Icon icon="search" />}
-                componentClass={Link}
-                to="/business"
+                componentClass={NavLink}
+                exact to="/business/search"
+                activeClassName="nav-item-active"
               >
-                Trova azienda
-              </Nav.Item>
+                Cerca azienda
+              </NavItemLink>
+              <NavItemLink
+                key="3"
+                eventKey="3"
+                icon={<Icon icon="plus" />}
+                componentClass={NavLink}
+                exact to="/business/add"
+                activeClassName="nav-item-active"
+              >
+                Inserisci azienda
+              </NavItemLink>
+              <NavItemLink
+                key="4"
+                eventKey="4"
+                icon={<Icon icon="warning" />}
+                componentClass={NavLink}
+                exact to="/test"
+                activeClassName="nav-item-active"
+              >
+                Test
+              </NavItemLink>
             </Nav>
           </Sidenav.Body>
         </Sidenav>
