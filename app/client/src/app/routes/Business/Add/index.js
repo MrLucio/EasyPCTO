@@ -48,6 +48,8 @@ class BusinessAdd extends React.Component{
     }
 
     shouldComponentUpdate(nextProps, nextState){
+        if(nextState.show !== this.state.show)
+            return true;
         return true;
     }
 
@@ -86,7 +88,7 @@ class BusinessAdd extends React.Component{
                 <Form
                     fluid
                     onChange={formValue => {
-                        this.setState({formValue: {...formValue, address: 1}})
+                        this.setState({formValue: {...formValue, address: 1}});
                     }}
                 >
                     <Row style={rowStyle}>
@@ -94,14 +96,14 @@ class BusinessAdd extends React.Component{
                         <Col md={10} >
                             <FormGroup>
                                 <ControlLabel>Nome</ControlLabel>
-                                <FormControl checkAsync name='name' accepter={BusinessNameInput} />
+                                <FormControl name='name' accepter={BusinessNameInput} />
                             </FormGroup>
                         </Col>
                         <Col md={2} />
                         <Col md={10} >
                             <FormGroup>
                                 <ControlLabel>Tipo</ControlLabel>
-                                <FormControl checkAsync
+                                <FormControl
                                     name='type'
                                     accepter={SelectPicker}
                                     placeholder='Tipo'
@@ -148,7 +150,8 @@ class BusinessAdd extends React.Component{
                         <Col md={10} >
                             <FormGroup>
                                 <ControlLabel>Indirizzo</ControlLabel>
-                                <AlgoliaPlaces
+                                <FormControl
+                                    accepter={AlgoliaPlaces}
                                     placeholder='Indirizzo'
                                 
                                     options={{
@@ -182,7 +185,7 @@ class BusinessAdd extends React.Component{
                         <Col md={10} >
                             <FormGroup>
                                 <ControlLabel>Numero di telefono</ControlLabel>
-                                <FormControl checkAsync name='phone' accepter={BusinessPhoneInput} />
+                                <FormControl name='phone' accepter={BusinessPhoneInput} />
                                 <HelpBlock>Facoltativo</HelpBlock>
                             </FormGroup>
                         </Col>
@@ -192,7 +195,7 @@ class BusinessAdd extends React.Component{
                         <Col md={10} >
                             <FormGroup>
                                 <ControlLabel>Email</ControlLabel>
-                                <FormControl checkAsync name='email' accepter={BusinessMailInput} />
+                                <FormControl name='email' accepter={BusinessMailInput} />
                                 <HelpBlock>Facoltativo</HelpBlock>
                             </FormGroup>
                         </Col>
@@ -200,7 +203,7 @@ class BusinessAdd extends React.Component{
                         <Col md={10} >
                             <FormGroup>
                                 <ControlLabel>Sito web</ControlLabel>
-                                <FormControl checkAsync name='website' accepter={BusinessWebsiteInput} />
+                                <FormControl name='website' accepter={BusinessWebsiteInput} />
                                 <HelpBlock>Facoltativo</HelpBlock>
                             </FormGroup>
                         </Col>
@@ -210,7 +213,7 @@ class BusinessAdd extends React.Component{
                         <Col md={10} >
                             <FormGroup>
                                 <ControlLabel>Numero impiegati</ControlLabel>
-                                <FormControl checkAsync
+                                <FormControl
                                     name='employees_number'
                                     accepter={InputNumber}
                                     min={0}
@@ -223,7 +226,7 @@ class BusinessAdd extends React.Component{
                         <Col md={10} >
                             <FormGroup>
                                 <ControlLabel>Corso</ControlLabel>
-                                <FormControl checkAsync
+                                <FormControl
                                     name='course'
                                     accepter={SelectPicker}
                                     placeholder='Corso'
@@ -270,7 +273,7 @@ class BusinessAdd extends React.Component{
                         <Col md={10} >
                             <FormGroup>
                                 <ControlLabel>Ateco</ControlLabel>
-                                <FormControl checkAsync
+                                <FormControl
                                     name='ateco'
                                     accepter={SelectPicker}
                                     placeholder='Ateco'
@@ -300,7 +303,7 @@ class BusinessAdd extends React.Component{
                         <Col md={10} >
                             <FormGroup>
                                 <ControlLabel>Data accordo</ControlLabel>
-                                <FormControl checkAsync
+                                <FormControl
                                     name='agreement_date'
                                     accepter={DatePicker}
                                     placement='auto'
@@ -318,13 +321,13 @@ class BusinessAdd extends React.Component{
                     <Row style={rowStyle}>
                         <Col md={7} />
                         <Col md={5} >
-                            <Button size="lg" onClick={this.handleSubmit} block>
+                            <Button size="lg" onClick={this.handleSubmit} style={{backgroundColor: 'white'}} block>
                                 <Icon icon="plus" size="lg" style={{ marginRight: 10, color: "#16c60c" }} />
                                 <h5 style={{ display: 'inline-block' }}>Inserisci azienda</h5>
                             </Button>
                         </Col>
                         <Col md={5} >
-                        <Button size="lg" block>
+                        <Button size="lg" style={{ backgroundColor: 'white'}} block>
                                 <Icon icon="close" size="lg" style={{ marginRight: 10, color: "#f44336" }} />
                                 <h5 style={{ display: 'inline-block' }}>Cancella dati inseriti</h5>
                             </Button>

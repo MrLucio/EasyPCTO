@@ -5,6 +5,7 @@ const cardStyle = (color = "green") => {
     return {
         borderLeft: "30px solid " + color,
         borderRight: "5px solid " + color,
+        backgroundColor: 'white',
         padding: 30
     }
 }

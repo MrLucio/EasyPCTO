@@ -18,9 +18,11 @@ class BusinessController extends Controller
     public function index()
     {
         // Get businesses
-        $businesses = Business::paginate(15);
+        $businesses = Business::paginate(2);
 
-        return BusinessResource::collection($businesses);
+        return BusinessResource::collection($businesses)
+        ->response()
+        ->header('Content-type', 'application/vnd.api+json');
     }
 
     /**

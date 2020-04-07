@@ -20,9 +20,9 @@ const App = ({match}) =>{
             <Router>
                 <Container className="frame">
                     <NavBar />
-                    <Container>
-                        <Content>
-                            <Panel>
+                    <Container style={{backgroundColor: '#f7f7fa'}}>
+                        <Content style={{minHeight: '100vh'}}>
+                            <Panel style={{minHeight: '100%'}}>
                             <Header style={{marginBottom: 30}}>
                                 <h2>{'EasyPCTO'}</h2>
                             </Header>

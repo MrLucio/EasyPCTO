@@ -46,7 +46,6 @@ export const addBusiness = (props) => {
         axios
         .post('http://easypcto.altervista.org/api/business', props)
         .then(res => {
-            console.log(res);
             dispatch(addBusinessSuccess());
         })
         .catch(err => {

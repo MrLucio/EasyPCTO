@@ -25,6 +25,11 @@ export default (state, action) => {
                 ...state,
                 locations: action.payload
             }
+        case "FETCH_BUSINESSES_ADDRESSES_SUCCESS":
+            return {
+                ...state,
+                businessesAddresses: action.payload
+            }
         case "FETCH_PAGINATION_SUCCESS":
             return {
                 ...state,

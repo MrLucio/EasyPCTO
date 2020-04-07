@@ -88,22 +88,22 @@ class NavBar extends React.Component{
               <NavItemLink
                 key="3"
                 eventKey="3"
+                icon={<Icon icon="search-plus" />}
+                componentClass={NavLink}
+                exact to="/test"
+                activeClassName="nav-item-active"
+              >
+                Ricerca avanzata
+              </NavItemLink>
+              <NavItemLink
+                key="4"
+                eventKey="4"
                 icon={<Icon icon="plus" />}
                 componentClass={NavLink}
                 exact to="/business/add"
                 activeClassName="nav-item-active"
               >
                 Inserisci azienda
-              </NavItemLink>
-              <NavItemLink
-                key="4"
-                eventKey="4"
-                icon={<Icon icon="warning" />}
-                componentClass={NavLink}
-                exact to="/test"
-                activeClassName="nav-item-active"
-              >
-                Test
               </NavItemLink>
             </Nav>
           </Sidenav.Body>

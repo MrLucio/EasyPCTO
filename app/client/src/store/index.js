@@ -7,6 +7,7 @@ const initialState = {
     'courses': [],
     'atecos': [],
     'types': [],
+    'businessesAddresses': [],
     'locations': [],
     'pagination': {}
 }
