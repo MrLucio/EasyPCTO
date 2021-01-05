@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "algolia-places-react": "^1.5.1",
     "antd": "3.26.11",
-    "axios": "0.19.2",
+    "axios": "0.21.1",
     "jsona": "^1.5.1",
     "leaflet": "^1.6.0",
     "qs": "^6.9.2",
